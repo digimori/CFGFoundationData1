@@ -98,8 +98,8 @@ function selectedAnswer(rightAnswer) {
     }
   }
 
-  document.querySelector("#nextButton").prop("disabled", false);
-  document.querySelectorAll(".option").classList.add("disable");
+  document.querySelector("#nextButton").disabled = false;
+  document.querySelector(".option").setAttribute("disabled", "");
 }
 
 // -------------------------------x of 21 questions code------------------------- //
@@ -111,6 +111,48 @@ function counter(i) {
   quesCount.innerHTML = bottomQuestionCounter;
 }
 
+// -------------------Button and function for next question--------------------- //
+
+document.querySelector("#nextButton").onclick = function () {
+  nextQuestion();
+  document.querySelector("#nextButton").disabled = true;
+};
+
+function nextQuestion() {
+  showQuestions(questionCount);
+  questionCount++;
+  questionNum++;
+
+  counter(questionNum);
+  if (questionCount == questions.length) {
+    document.querySelector("#nextButton").innerHTML = "Results";
+    document.querySelector("#nextButton").onclick = function () {
+      showResults();
+    };
+  }
+}
+
+// ------------------------ Results box -------------------------------------- //
+
+function showResults() {
+  howToPlay.classList.remove("showBox");
+  quizBox.classList.remove("activeQuiz");
+  results.classList.add("showResults");
+  incrementScore();
+}
+
+function incrementScore() {
+  let scoreCounter = document.querySelector("#score");
+  if (userScore >= 0) {
+    scoreCounter.innerHTML =
+      "<span>You scored <p>" + userScore + "</p> out of <p>21</p></span>";
+  }
+}
+
+// ------------------------ End Game/Restart -------------------------------------- //
+function exitGameEnd() {
+  window.location.reload();
+}
 
 // ------------------- Event Listeners ----------------------- //
 
