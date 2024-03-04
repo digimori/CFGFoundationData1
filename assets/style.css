@@ -10,8 +10,6 @@
 
 body {
   background-image: url("/media/genshinscreen.jpg");
-  width: 100vw;
-  height: 100vh;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -21,10 +19,10 @@ body {
   background-image: url("/media/Genshin-Impact-Logo-PNG-Photos.png");
   position: relative;
   margin: 0 auto;
-  top: 2rem;
+  top: 30px;
   z-index: 459;
-  height: 18.75rem;
-  width: 35rem;
+  height: 300px;
+  width: 560px;
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -83,7 +81,7 @@ body {
   border: 2px solid #3f292c;
   border-radius: 5px;
   padding: 12px 20px;
-  height: 5.6rem;
+  height: 90px;
   z-index: 20;
 }
 
@@ -94,10 +92,10 @@ body {
   width: 30%;
   border-radius: 8px;
   border: 2px solid #3f292c;
-  height: 28rem;
+  height: 440px;
   transform: translate(-50%, -50%) scale(1);
   opacity: 0;
-  margin-top: 11rem;
+  margin-top: 180px;
 }
 
 .ruleTitle {

@@ -53,6 +53,65 @@ function showQuestions(i) {
   }
 }
 
+// ---------------------- Show questions function ---------- //
+
+function showQuestions(i) {
+  let questionText = document.querySelector("#questionText");
+  questionText.innerHTML =
+    "<span>" + questions[i].numero + ". " + questions[i].question + "</span>";
+  answers.innerHTML =
+    '<div class="option"><span>' +
+    questions[i].answer[0] +
+    "</span></div>" +
+    '<div class="option"><span>' +
+    questions[i].answer[1] +
+    "</span></div>" +
+    '<div class="option"><span>' +
+    questions[i].answer[2] +
+    "</span></div>";
+  let option = answers.querySelectorAll(".option");
+  for (let i = 0; i < option.length; i++) {
+    option[i].setAttribute("onclick", "selectedAnswer(this)");
+  }
+}
+
+// --------------------- Answer Selection --------------------- //
+
+function selectedAnswer(rightAnswer) {
+  let userResponse = rightAnswer.textContent;
+  let correctAnswer = questions[questionCount - 1].rightAnswer;
+  let allSelections = answers.children.length;
+
+  if (userResponse == correctAnswer) {
+    userScore += 1;
+    rightAnswer.classList.add("correct");
+  } else {
+    rightAnswer.classList.add("incorrect");
+    showAnswer();
+  }
+
+  function showAnswer() {
+    for (let i = 0; i < allSelections; i++) {
+      if (answers.children[i].textContent == correctAnswer) {
+        answers.children[i].setAttribute("class", "option correct");
+      }
+    }
+  }
+
+  document.querySelector("#nextButton").prop("disabled", false);
+  document.querySelectorAll(".option").classList.add("disable");
+}
+
+// -------------------------------x of 21 questions code------------------------- //
+
+function counter(i) {
+  const quesCount = document.querySelector("#totalQuestions");
+  let bottomQuestionCounter =
+    "<span><p> " + i + " of " + questions.length + "</p></span>";
+  quesCount.innerHTML = bottomQuestionCounter;
+}
+
+
 // ------------------- Event Listeners ----------------------- //
 
 document.querySelector("#startButton").addEventListener("click", startGame);
