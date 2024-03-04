@@ -31,6 +31,28 @@ function newGame() {
   counter(1);
 }
 
+// ---------------------- Show questions function ---------- //
+
+function showQuestions(i) {
+  let questionText = document.querySelector("#questionText");
+  questionText.innerHTML =
+    "<span>" + questions[i].numero + ". " + questions[i].question + "</span>";
+  answers.innerHTML =
+    '<div class="option"><span>' +
+    questions[i].answer[0] +
+    "</span></div>" +
+    '<div class="option"><span>' +
+    questions[i].answer[1] +
+    "</span></div>" +
+    '<div class="option"><span>' +
+    questions[i].answer[2] +
+    "</span></div>";
+  let option = answers.querySelectorAll(".option");
+  for (let i = 0; i < option.length; i++) {
+    option[i].setAttribute("onclick", "selectedAnswer(this)");
+  }
+}
+
 // ------------------- Event Listeners ----------------------- //
 
 document.querySelector("#startButton").addEventListener("click", startGame);
