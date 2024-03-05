@@ -9,14 +9,14 @@
 }
 
 body {
-  background-image: url("media/genshinscreen.jpg");
+  background-image: url("../media/genshinscreen.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
 }
 
 #logo {
-  background-image: url("media/Genshin-Impact-Logo-PNG-Photos.png");
+  background-image: url("../media/Genshin-Impact-Logo-PNG-Photos.png");
   position: relative;
   margin: 0 auto;
   top: 30px;
@@ -329,7 +329,7 @@ footer {
 
 .icon {
   margin: 12px auto;
-  background-image: url("media/baizhu.png");
+  background-image: url("../media/baizhu.png");
   background-size: cover;
   height: 200px;
   width: 200px;
