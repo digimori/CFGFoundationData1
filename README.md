@@ -2,7 +2,7 @@
 
 JS Assignment for CFG Degree
 
-[Live Preview]()
+[Live Preview](https://digimori.github.io/CFGFoundationData1/)
 
 Technologies used:
 
